@@ -1,0 +1,765 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Gizra</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/theme/default.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+		<script>
+			if( window.location.search.match( /print-pdf/gi ) ) {
+				var link = document.createElement( 'link' );
+				link.rel = 'stylesheet';
+				link.type = 'text/css';
+				link.href = 'css/print/pdf.css';
+				document.getElementsByTagName( 'head' )[0].appendChild( link );
+			}
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+
+      <section id="transitions">
+        <h2>Styles</h2>
+        <p>
+          Select transitions<br>
+          <a href="?transition=none#/transitions">None</a> -
+          <a href="?#/transitions">Default</a>
+        </p>
+      </section>
+
+        <!--Slide 0-->
+        <section>
+					<h2>Version 1</h2>
+					<pre><code data-trim>
+// Check if user has access.
+function restful_get_access($object, $type)
+{
+    if ( entity_access ($type,$object) ) {
+        return true;
+    } else {
+        return false;
+    }
+}
+					</code></pre>
+          <aside class="notes">
+            קוד כמו יצירה ספרותית.
+            קוד צריך להיות הייקו, פופ.
+          </aside>
+				</section>
+
+        <!--Slide 1-->
+        <section>
+					<h2>Version 2</h2>
+					<pre><code data-trim>
+/**
+ * Check if user has access.
+ */
+function restful_get_access($object, $type) {
+  if (entity_access($type, $object)) {
+    return TRUE;
+  }
+  else {
+    return FALSE;
+  }
+}
+					</code></pre>
+				</section>
+
+        <!--Slide 2-->
+
+        <section>
+					<h2>Version 3</h2>
+					<pre><code data-trim>
+/**
+ * Check if user has access.
+ */
+function restful_get_access($object, $type) {
+  if (entity_access($type, $object)) {
+    return TRUE;
+  }
+  return FALSE;
+}
+					</code></pre>
+				</section>
+
+        <!--Slide 3-->
+        <section>
+					<h2>Version 4</h2>
+					<pre><code data-trim>
+/**
+ * Check if user has access.
+ */
+function restful_get_access($object, $type) {
+  return entity_access($type, $object);
+}
+					</code></pre>
+				</section>
+
+        <!--Slide 4-->
+        <section>
+					<h2>Version 5</h2>
+					<pre><code class="php" data-trim>
+/**
+ * Check if user has access.
+ */
+function restful_get_access($object, $type) {
+  // ...
+}
+					</code></pre>
+				</section>
+
+        <!--Slide 5-->
+        <section>
+					<h2>Version 6</h2>
+					<pre><code class="php" data-trim>
+/**
+ * Check if user has access to a given entity.
+ *
+ * @param string $entity_type
+ *   The entity type.
+ * @param \Entity $entity
+ *   The entity object.
+ * @param stdClass $account
+ *   (optional) The user object to perform the check on. If empty, Defaults to
+ *   the current user.
+ *
+ * @return bool
+ *   TRUE if the user has access to the entity, otherwise FALSE.
+ */
+function restful_get_access($entity_type, $entity, $account = NULL) {
+  // ...
+}
+					</code></pre>
+          <aside class="notes">
+            Implementation details
+          </aside>
+				</section>
+
+        <section>
+					<h2>Version 7</h2>
+					<pre><code class="php" data-trim>
+/**
+ * Check if user has access to a given entity.
+ *
+ * @param string $entity_type
+ *   The entity type.
+ * @param \Entity $entity
+ *   The entity object.
+ * @param stdClass $account
+ *   (optional) The user object to perform the check on. If empty, Defaults to
+ *   the current user.
+ *
+ * @return bool
+ *   TRUE if the user has access to the entity, otherwise FALSE.
+ */
+function restful_get_access($entity_type, $entity, $account = NULL) {
+  return entity_access($entity_type, $entity, $account);
+}
+					</code></pre>
+				</section>
+
+				<section>
+					<h1>Aesthetic Code</h1>
+					<h3>Gizra</h3>
+					<p>
+						<small>Amitai Burstein (<a href="http://twitter.com/amitaibu">@amitaibu</a>)</small>
+					</p>
+          <aside class="notes">
+            Intro about Gizra
+          </aside>
+				</section>
+
+        <section>
+          <h2>It must be 2011 because</h2>
+          <ul>
+            <li>You write Plain CSS</li>
+            <li>Your first solution to the problem is Views</li>
+            <li>You think you can do it all with just plain Drupal</li>
+          </ul>
+        </section>
+
+      <section>
+        <h1>2014: Headless Drupal</h1>
+        <aside class="notes">
+          No longer monolithic Drupal. Front end advanced quickly.
+        </aside>
+      </section>
+
+        <section>
+          <h2>RestWs</h2>
+					<small><code data-trim>
+            https://example.com/node/1
+					</code></small>
+
+          <div>
+            <img src="images/node-view.jpg">
+          </div>
+        </section>
+
+        <section>
+          <h2>RestWs</h2>
+          <small><code data-trim>
+            https://example.com/node/1.json
+          </code></small>
+
+          <pre><code data-trim>
+{
+  body: {
+    value: "<p>This is the body</p> ",
+    format: "filtered_html"
+  },
+  field_tags: [ ],
+  nid: "1",
+  vid: "1",
+  is_new: false,
+  type: "article",
+  title: "A new article",
+  language: "und",
+  status: "1",
+  promote: "1",
+  sticky: "0",
+  revision: null,
+}
+
+          </code></pre>
+        </section>
+
+
+      <section>
+          <h2>GitHub on RestWs</h2>
+          <small><code data-trim>
+            https://github.com/symfony/symfony2.json
+          </code></small>
+
+          <pre><code data-trim>
+{
+  nid: "1",
+  vid: "1",
+  is_new: false,
+  title: "Symfony2",
+  type: "repository",
+  field_user_ref: 100,
+  language: "fr",
+  // ...
+}
+          </code></pre>
+        </section>
+
+      <section>
+        <div>
+          <img src="images/email1.jpg">
+        </div>
+
+        <aside class="notes">
+גישה חדשה, שתציב את גיזרה בראש ההאדלס. יש עלויות והשקעה. תגובותו המרגשת של בריס
+          את כל עוצמת הרגשות הוא תמצת
+        </aside>
+      </section>
+
+      <section>
+        <div>
+          <img src="images/email2.jpg">
+        </div>
+      </section>
+
+      <section>
+        <h1>RESTful</h1>
+        This module achieves a practical RESTful for Drupal following best practices.
+      </section>
+
+
+      <section>
+          <h2>RESTful</h2>
+          <small><code data-trim>
+            https://example.com/api/articles/1
+          </code></small>
+
+          <pre><code data-trim>
+{
+  data: [
+    {
+      id: "1",
+      label: "A new article",
+      self: "https://example.com/api/v2.0/articles/1"
+    }
+  ],
+  self: {
+    title: "Self",
+    href: "https://example.com/api/v2.0/articles/1"
+  }
+}
+          </code></pre>
+
+        <aside class="notes">
+          Expose bundles, Versionable API, Clean output
+        </aside>
+        </section>
+
+
+        <section>
+          <h2>RESTful</h2>
+          <small><code data-trim>
+            https://example.com/api/v1.5/articles/1
+          </code></small>
+
+          <pre><code data-trim>
+{
+  data: [
+    {
+      id: "1",
+      label: "A new article",
+      self: "https://example.com/api/v1.5/articles/1",
+      text: "<p>This is the body</p> ",
+      user: {
+        id: "1",
+        label: "admin",
+        self: "https://example.com/api/v1.0/users/1",
+        mail: "admin@example.com"
+      }
+    }
+  ],
+  self: {
+    title: "Self",
+    href: "https://example.com/api/v1.5/articles/1"
+  }
+}
+          </code></pre>
+        </section>
+
+        <section>
+          <h2>RESTful</h2>
+          <small><code data-trim>
+            https://example.com/api/v1.5/articles/1
+          </code></small>
+
+          <pre><code data-trim>
+class RestfulExampleArticlesResource__1_5 extends RestfulEntityBaseNode {
+
+  /**
+   * Overrides RestfulEntityBaseNode::publicFieldsInfo().
+   */
+  public function publicFieldsInfo() {
+    $public_fields = parent::publicFieldsInfo();
+
+    $public_fields['text'] = array(
+      'property' => 'field_text_area',
+      'sub_property' => 'value',
+    );
+
+    $public_fields['user'] = array(
+      'property' => 'author',
+      'resource' => array(
+        // The bundle of the entity.
+        'user' => array(
+          // The name of the resource to map to.
+          'name' => 'users',
+          // Determines if the entire resource should appear, or only the ID.
+          'full_view' => TRUE,
+        ),
+      ),
+    );
+
+
+    return $public_fields;
+  }
+}
+          </code></pre>
+        </section>
+
+
+        <section>
+          <h2>GET</h2>
+          <pre><code data-trim>
+// Get the RESTful handler.
+$handler = restful_get_restful_handler('articles', 1, 5);
+
+// Get a list of articles.
+$result = $handler->get(); // https://example.com/api/v1.5/articles
+
+// Sort list DESC.
+$request = array(
+  'sort' => array(
+    'id' => 'DESC',
+  ),
+);
+$result = $handler->get('', $request); // https://example.com/api/v1.5/articles/1?sort=-id
+
+// Get article with ID 1.
+$result = $handler->get(1); // https://example.com/api/v1.5/articles/1
+          </code></pre>
+        </section>
+
+
+        <section>
+          <h2>POST, PATCH, PUT, DELETE</h2>
+          <pre><code data-trim>
+
+// Get the RESTful handler.
+$handler = restful_get_restful_handler('articles', 1, 5);
+
+// Create a new "article" resource.
+$request = array('label' => 'My new article');
+$result = $handler->post('', $request);
+
+// Update just the label.
+$request = array('label' => 'Edited label');
+$handler->patch($result['id'], $request);
+
+// Delete.
+$handler->delete($result['id']);
+          </code></pre>
+        </section>
+
+        <section>
+          <h2>Features</h2>
+          <ul>
+            <li>Authentication</li>
+            <li>Rate Limit</li>
+            <li>Render Cache</li>
+            <li>Data Providers (Entity, DB, CTools plugins)</li>
+          </ul>
+        </section>
+
+         <section>
+          <h2>Discovery</h2>
+           <small><code data-trim>
+             GET: https://example.com/api
+           </code></small>
+          <pre><code data-trim>
+
+{
+  data: [
+    {
+      label: "Articles",
+      description: "Export the article content type with "cookie" authentication.",
+      name: "articles__2_0",
+      resource: "articles",
+      major_version: 2,
+      minor_version: 0,
+      self: "https://example.com/api/v2.0/articles"
+    },
+    {
+      label: "Login",
+      description: "Login a user and return a JSON along with the authentication cookie..",
+      // ...
+      self: "https://example.com/api/login"
+    },
+    {
+      label: "File upload",
+      description: "A file upload wrapped with RESTful.",
+      // ...
+      self: "https://example.com/api/file-upload"
+    },
+    {
+      label: "CSRF token",
+      description: "Export the CSRF token unique for each user.",
+      // ...
+      self: "https://example.com/api/session/token"
+    },
+  ],
+  count: 10,
+  self: {
+    title: "Self",
+    href: "https://example.com/api"
+    }
+  }
+}
+          </code></pre>
+        </section>
+
+
+      <section>
+          <h2>Discovery</h2>
+           <small><code data-trim>
+             OPTIONS: https://example.com/api/articles
+           </code></small>
+          <pre><code data-trim>
+{
+  label: {
+    info: {
+      label: "Label",
+      description: "The label of the resource."
+    },
+    data: {
+      type: "string",
+      read_only: false,
+      cardinality: 1,
+      required: false
+    },
+    form_element: {
+      type: "texfield",
+      default_value: "",
+      placeholder: "",
+      size: 255,
+      allowed_values: null
+    }
+  }
+}
+
+          </code></pre>
+        </section>
+
+        <section>
+          <video autoplay loop class="stretch" src="images/quick-post.mp4"></video>
+          <aside class="notes">
+            Auto discovery apps that can crawl the backend. Quick post.
+          </aside>
+        </section>
+
+        <section>
+          <h2>Features</h2>
+          <ul>
+            <li>Authentication</li>
+            <li>Rate Limit</li>
+            <li>Render Cache</li>
+            <li>Data Providers (Entity, DB, CTools plugins)</li>
+            <li>Formatters</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Simple JSON</h2>
+          <small><code data-trim>
+            https://example.com/api/articles/1
+          </code></small>
+
+          <pre><code data-trim>
+{
+  data: [
+    {
+      id: "1",
+      label: "A new article",
+      self: "https://example.com/api/v2.0/articles/1"
+    }
+  ],
+  self: {
+    title: "Self",
+    href: "https://example.com/api/v2.0/articles/1"
+  }
+}
+          </code></pre>
+        </section>
+
+
+         <section>
+          <h2>HAL+JSON</h2>
+          <small><code data-trim>
+            https://example.com/api/articles/1
+          </code></small>
+
+           <aside class="notes">
+             Create your own formatter to fit existing apps
+           </aside>
+
+          <pre><code data-trim>
+{
+  hal:articles: [
+    {
+      id: "1",
+      label: "A new article",
+      _links: {
+        self: {
+          href: "https://example.com/api/v2.0/articles/1"
+        }
+      }
+    }
+  ],
+  _links: {
+    self: {
+      title: "Self",
+      href: "https://example.com/api/v2.0/articles/1"
+    },
+    curies: {
+      name: "hal",
+      href: "https://example.com/docs/rels/{rel}",
+      templated: true
+    }
+  }
+}
+          </code></pre>
+        </section>
+
+        <section>
+          <h2>Features</h2>
+          <ul>
+            <li>Authentication</li>
+            <li>Rate Limit</li>
+            <li>Render Cache</li>
+            <li>Data Providers (Entity, DB, CTools plugins)</li>
+            <li>Formatters</li>
+            <li>Tests</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Lots of tests ...</h2>
+          <img src="images/tests.jpg">
+        </section>
+
+        <section>
+          <h2>... executed every commit</h2>
+          <small><code data-trim>
+            https://github.com/Gizra/restful
+          </code></small>
+          <img src="images/travis.jpg">
+        </section>
+
+
+        <section>
+          <h1>יאללה, בוא נדבר על טסטים</h1>
+          <aside class="notes">
+            Lets imagine you all write tests
+          </aside>
+        </section>
+
+        <section>
+          <h2>Behat</h2>
+
+          <pre><code data-trim>
+Scenario: Validate a user can login to the site and see the homepage.
+Given I visit "/user/login"
+ # Fill the username and password input fields, and click submit
+ When I fill "username" with "foo"
+  And I fill "password" with "bar"
+  And I press "Login"
+ Then I should get a "200" HTTP response
+          </code></pre>
+        </section>
+
+        <section>
+          <h2>Behat, Human readable</h2>
+
+          <pre><code data-trim>
+Scenario: Validate a user can login to the site and see the homepage.
+Given I login with an "authenticated" user
+ When I go to the homepage
+ Then I should have access
+          </code></pre>
+        </section>
+
+        <section>
+          <h2>Machine</h2>
+
+          <pre><code data-trim>
+Scenario: Validate a user has access to an article.
+Given I login with an "authenticated" user
+ When I go to "node/1"
+ Then I should have access
+          </code></pre>
+        </section>
+
+        <section>
+          <h2>Human</h2>
+
+          <pre><code data-trim>
+Scenario: Validate a user has access to an article.
+Given I login with an "authenticated" user
+ When I go to the content "My first article"
+ Then I should have access
+          </code></pre>
+        </section>
+
+        <section>
+          <pre><code data-trim>
+/**
+ * @When /^I go to the content "([^"]*)"$/
+ */
+public function iGoToTheContent($title) {
+  $query = new entityFieldQuery();
+  $result = $query
+    ->entityCondition('entity_type', 'node')
+    ->propertyCondition('title', $title)
+    ->propertyCondition('status', NODE_PUBLISHED)
+    ->range(0, 1)
+    ->execute();
+
+  if (empty($result['node'])) {
+    $params = array('@title' => $title);
+    throw new Exception(format_string("Node @title not found.", $params));
+  }
+
+  $nid = key($result['node']);
+  return new Given('I go to "node/' . $nid. '"');
+}
+          </code></pre>
+        </section>
+
+        <section>
+          <h1>Clear Communication</h1>
+          <h2>LeHafrid Et Hamotz Me Hateven</h2>
+
+          <aside class="notes">
+            The same way you imagine the clean UI; Your code is the UI.
+            Define the user. Keep it clear for all the "user" stack.
+          </aside>
+        </section>
+
+				<section>
+					<h1>Gizra</h1>
+					<h3>We hire: <span style="text-decoration: underline;">Experienced</span> PHP / JS developers</h3>
+				</section>
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Parallax scrolling
+				// parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+				// parallaxBackgroundSize: '2100px 900px',
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
