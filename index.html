@@ -71,7 +71,96 @@
         </div>
       </section>
 
-        <!--Slide 0-->
+      <section>
+        <div>
+          <img src="images/notalk1.jpg">
+        </div>
+      </section>
+
+      <section>
+        <pre><code data-trim>
+/**
+ * Get matching tags.
+ *
+ * @param query
+ *   The query string.
+ */
+$scope.tagsQuery = function (query) {
+  var url = DrupalSettings.getBasePath() + 'api/v1/tags';
+  var terms = {results: []};
+
+  var lowerCaseTerm = query.term.toLowerCase();
+  if (angular.isDefined($scope.tagsQueryCache[lowerCaseTerm])) {
+    // Add caching.
+    terms.results = $scope.tagsQueryCache[lowerCaseTerm];
+    query.callback(terms);
+    return;
+  }
+
+  $http.get(url, {
+    params: {
+      string: query.term
+    }
+  }).success(function(data) {
+        </code></pre>
+      </section>
+
+      <section>
+        <div>
+          <img src="images/notalk2.jpg">
+        </div>
+      </section>
+
+      <section>
+        <div>
+          <img src="images/notalk3.jpg">
+        </div>
+      </section>
+
+      <section>
+        <div>
+          <img src="images/notalk4.jpg">
+        </div>
+      </section>
+
+      <section>
+        <div>
+          <img src="images/notalk5.png">
+        </div>
+      </section>
+
+      <section>
+        <div>
+          <img src="images/notalk6.jpg">
+        </div>
+      </section>
+
+      <section>
+        <div>
+          <img src="images/notalk7.png">
+        </div>
+      </section>
+
+
+      <section>
+        <div>
+          <img src="images/notalk8.jpg">
+        </div>
+      </section>
+
+
+      <section>
+        <div>
+          <img src="images/notalk9.jpg">
+        </div>
+      </section>
+
+      <section>
+        <div>
+          <img src="images/notalk10.jpg">
+        </div>
+      </section>
+
         <section>
 					<h2>Version 1</h2>
 					<pre><code data-trim>
@@ -86,8 +175,7 @@ function restful_get_access($object, $type)
 }
 					</code></pre>
           <aside class="notes">
-            קוד כמו יצירה ספרותית.
-            קוד צריך להיות הייקו, פופ.
+            Code should be like Hiku pop.
           </aside>
 				</section>
 
