@@ -209,9 +209,25 @@ $scope.tagsQuery = function (query) {
         <div class="description">The pre-Pantheon days</div>
       </section>
 
-        <section>
-					<h2>Version 1</h2>
-					<pre><code data-trim>
+      <section>
+        <h2>It must be the past because</h2>
+        <ul>
+          <li>You write Plain CSS</li>
+          <li>Your first solution to the problem is Views</li>
+          <li>You think you can do it all with just plain Drupal</li>
+        </ul>
+      </section>
+
+      <section>
+        <h1>2015: Headless Drupal</h1>
+        <aside class="notes">
+          No longer monolithic Drupal. Front end advanced quickly.
+        </aside>
+      </section>
+
+      <section>
+        <h2>Version 1</h2>
+        <pre><code data-trim>
 // Check if user has access.
 function restful_get_access($object, $type)
 {
@@ -221,16 +237,12 @@ function restful_get_access($object, $type)
         return false;
     }
 }
-					</code></pre>
-          <aside class="notes">
-            Code should be like Hiku pop.
-          </aside>
-				</section>
+        </code></pre>
+      </section>
 
-        <!--Slide 1-->
-        <section>
-					<h2>Version 2</h2>
-					<pre><code data-trim>
+      <section>
+        <h2>Version 2</h2>
+        <pre><code data-trim>
 /**
  * Check if user has access.
  */
@@ -242,14 +254,12 @@ function restful_get_access($object, $type) {
     return FALSE;
   }
 }
-					</code></pre>
-				</section>
+        </code></pre>
+      </section>
 
-        <!--Slide 2-->
-
-        <section>
-					<h2>Version 3</h2>
-					<pre><code data-trim>
+      <section>
+        <h2>Version 3</h2>
+        <pre><code data-trim>
 /**
  * Check if user has access.
  */
@@ -259,65 +269,24 @@ function restful_get_access($object, $type) {
   }
   return FALSE;
 }
-					</code></pre>
-				</section>
+        </code></pre>
+      </section>
 
-        <!--Slide 3-->
-        <section>
-					<h2>Version 4</h2>
-					<pre><code data-trim>
+      <section>
+        <h2>Version 4</h2>
+        <pre><code data-trim>
 /**
  * Check if user has access.
  */
 function restful_get_access($object, $type) {
   return entity_access($type, $object);
 }
-					</code></pre>
-				</section>
+        </code></pre>
+      </section>
 
-        <!--Slide 4-->
-        <section>
-					<h2>Version 5</h2>
-					<pre><code class="php" data-trim>
-/**
- * Check if user has access.
- */
-function restful_get_access($object, $type) {
-  // ...
-}
-					</code></pre>
-				</section>
-
-        <!--Slide 5-->
-        <section>
-					<h2>Version 6</h2>
-					<pre><code class="php" data-trim>
-/**
- * Check if user has access to a given entity.
- *
- * @param string $entity_type
- *   The entity type.
- * @param \Entity $entity
- *   The entity object.
- * @param stdClass $account
- *   (optional) The user object to perform the check on. If empty, Defaults to
- *   the current user.
- *
- * @return bool
- *   TRUE if the user has access to the entity, otherwise FALSE.
- */
-function restful_get_access($entity_type, $entity, $account = NULL) {
-  // ...
-}
-					</code></pre>
-          <aside class="notes">
-            Implementation details
-          </aside>
-				</section>
-
-        <section>
-					<h2>Version 7</h2>
-					<pre><code class="php" data-trim>
+      <section>
+        <h2>Version 5</h2>
+        <pre><code class="php" data-trim>
 /**
  * Check if user has access to a given entity.
  *
@@ -335,7 +304,38 @@ function restful_get_access($entity_type, $entity, $account = NULL) {
 function restful_get_access($entity_type, $entity, $account = NULL) {
   return entity_access($entity_type, $entity, $account);
 }
+        </code></pre>
+
+        <aside class="notes">
+          Code should be like Hiku pop.
+        </aside>
+      </section>
+
+      <section>
+        <h2>Version 5</h2>
+        <pre><code class="php" data-trim>
+/**
+ * Check if user has access to a given entity.
+ *
+ * @param string $entity_type
+ *   The entity type.
+ * @param \Entity $entity
+ *   The entity object.
+ * @param stdClass $account
+ *   (optional) The user object to perform the check on. If empty, Defaults to
+ *   the current user.
+ *
+ * @return bool
+ *   TRUE if the user has access to the entity, otherwise FALSE.
+ */
+function restful_get_access($entity_type, $entity, $account = NULL) {
+  // ...
+}
 					</code></pre>
+
+          <aside class="notes">
+            Code should be like Haiku-Pop.
+          </aside>
 				</section>
 
 				<section>
@@ -350,25 +350,7 @@ function restful_get_access($entity_type, $entity, $account = NULL) {
               <small>Amitai Burstein - Gizra (<a href="http://twitter.com/amitaibu">@amitaibu</a>)</small>
             </div>
 					</p>
-          <aside class="notes">
-          </aside>
 				</section>
-
-        <section>
-          <h2>It must be the past because</h2>
-          <ul>
-            <li>You write Plain CSS</li>
-            <li>Your first solution to the problem is Views</li>
-            <li>You think you can do it all with just plain Drupal</li>
-          </ul>
-        </section>
-
-      <section>
-        <h1>2015: Headless Drupal</h1>
-        <aside class="notes">
-          No longer monolithic Drupal. Front end advanced quickly.
-        </aside>
-      </section>
 
         <section>
           <h2>Rest</h2>
@@ -382,7 +364,7 @@ function restful_get_access($entity_type, $entity, $account = NULL) {
         </section>
 
         <section>
-          <h2>RestWs</h2>
+          <h2>Rest</h2>
           <small><code data-trim>
             https://example.com/node/1.json
           </code></small>
@@ -409,7 +391,6 @@ function restful_get_access($entity_type, $entity, $account = NULL) {
           </code></pre>
         </section>
 
-
       <section>
           <h2>GitHub on Rest</h2>
           <small><code data-trim>
@@ -429,24 +410,6 @@ function restful_get_access($entity_type, $entity, $account = NULL) {
 }
           </code></pre>
         </section>
-
-      <section>
-        <div>
-          <img src="images/todo1.jpg">
-        </div>
-      </section>
-
-      <section>
-        <div>
-          <img src="images/todo2.jpg">
-        </div>
-      </section>
-
-      <section>
-        <h1>RESTful</h1>
-        This module achieves a practical RESTful for Drupal following best practices.
-      </section>
-
 
       <section>
           <h2>RESTful</h2>
@@ -469,135 +432,6 @@ function restful_get_access($entity_type, $entity, $account = NULL) {
   }
 }
           </code></pre>
-
-        <aside class="notes">
-          Expose bundles, Versionable API, Clean output
-        </aside>
-        </section>
-
-
-        <section>
-          <h2>RESTful</h2>
-          <small><code data-trim>
-            https://example.com/api/v1.5/articles/1
-          </code></small>
-
-          <pre><code data-trim>
-{
-  data: [
-    {
-      id: "1",
-      label: "A new article",
-      self: "https://example.com/api/v1.5/articles/1",
-      text: "<p>This is the body</p> ",
-      user: {
-        id: "1",
-        label: "admin",
-        self: "https://example.com/api/v1.0/users/1",
-        mail: "admin@example.com"
-      }
-    }
-  ],
-  self: {
-    title: "Self",
-    href: "https://example.com/api/v1.5/articles/1"
-  }
-}
-          </code></pre>
-        </section>
-
-        <section>
-          <h2>RESTful</h2>
-          <small><code data-trim>
-            https://example.com/api/v1.5/articles/1
-          </code></small>
-
-          <pre><code data-trim>
-class RestfulExampleArticlesResource__1_5 extends RestfulEntityBaseNode {
-
-  /**
-   * Overrides RestfulEntityBaseNode::publicFieldsInfo().
-   */
-  public function publicFieldsInfo() {
-    $public_fields = parent::publicFieldsInfo();
-
-    $public_fields['text'] = array(
-      'property' => 'field_text_area',
-      'sub_property' => 'value',
-    );
-
-    $public_fields['user'] = array(
-      'property' => 'author',
-      'resource' => array(
-        // The bundle of the entity.
-        'user' => array(
-          // The name of the resource to map to.
-          'name' => 'users',
-          // Determines if the entire resource should appear, or only the ID.
-          'full_view' => TRUE,
-        ),
-      ),
-    );
-
-
-    return $public_fields;
-  }
-}
-          </code></pre>
-        </section>
-
-
-        <section>
-          <h2>GET</h2>
-          <pre><code data-trim>
-// Get the RESTful handler.
-$handler = restful_get_restful_handler('articles', 1, 5);
-
-// Get a list of articles.
-$result = $handler->get(); // https://example.com/api/v1.5/articles
-
-// Sort list DESC.
-$request = array(
-  'sort' => array(
-    'id' => 'DESC',
-  ),
-);
-$result = $handler->get('', $request); // https://example.com/api/v1.5/articles/1?sort=-id
-
-// Get article with ID 1.
-$result = $handler->get(1); // https://example.com/api/v1.5/articles/1
-          </code></pre>
-        </section>
-
-
-        <section>
-          <h2>POST, PATCH, PUT, DELETE</h2>
-          <pre><code data-trim>
-
-// Get the RESTful handler.
-$handler = restful_get_restful_handler('articles', 1, 5);
-
-// Create a new "article" resource.
-$request = array('label' => 'My new article');
-$result = $handler->post('', $request);
-
-// Update just the label.
-$request = array('label' => 'Edited label');
-$handler->patch($result['id'], $request);
-
-// Delete.
-$handler->delete($result['id']);
-          </code></pre>
-        </section>
-
-        <section>
-          <h2>Features</h2>
-          <ul>
-            <li>Authentication</li>
-            <li>Rate Limit</li>
-            <li>Render Cache</li>
-            <li>Data Providers (Entity, DB, CTools plugins)</li>
-          </ul>
         </section>
 
          <section>
@@ -644,16 +478,16 @@ $handler->delete($result['id']);
     }
   }
 }
-          </code></pre>
-        </section>
+        </code></pre>
+      </section>
 
 
       <section>
-          <h2>Discovery</h2>
-           <small><code data-trim>
-             OPTIONS: https://example.com/api/articles
-           </code></small>
-          <pre><code data-trim>
+        <h2>Discovery</h2>
+         <small><code data-trim>
+           OPTIONS: https://example.com/api/articles
+         </code></small>
+        <pre><code data-trim>
 {
   label: {
     info: {
@@ -686,184 +520,6 @@ $handler->delete($result['id']);
           </aside>
         </section>
 
-        <section>
-          <h2>Features</h2>
-          <ul>
-            <li>Authentication</li>
-            <li>Rate Limit</li>
-            <li>Render Cache</li>
-            <li>Data Providers (Entity, DB, CTools plugins)</li>
-            <li>Formatters</li>
-          </ul>
-        </section>
-
-        <section>
-          <h2>Simple JSON</h2>
-          <small><code data-trim>
-            https://example.com/api/articles/1
-          </code></small>
-
-          <pre><code data-trim>
-{
-  data: [
-    {
-      id: "1",
-      label: "A new article",
-      self: "https://example.com/api/v2.0/articles/1"
-    }
-  ],
-  self: {
-    title: "Self",
-    href: "https://example.com/api/v2.0/articles/1"
-  }
-}
-          </code></pre>
-        </section>
-
-
-         <section>
-          <h2>HAL+JSON</h2>
-          <small><code data-trim>
-            https://example.com/api/articles/1
-          </code></small>
-
-           <aside class="notes">
-             Create your own formatter to fit existing apps
-           </aside>
-
-          <pre><code data-trim>
-{
-  hal:articles: [
-    {
-      id: "1",
-      label: "A new article",
-      _links: {
-        self: {
-          href: "https://example.com/api/v2.0/articles/1"
-        }
-      }
-    }
-  ],
-  _links: {
-    self: {
-      title: "Self",
-      href: "https://example.com/api/v2.0/articles/1"
-    },
-    curies: {
-      name: "hal",
-      href: "https://example.com/docs/rels/{rel}",
-      templated: true
-    }
-  }
-}
-          </code></pre>
-        </section>
-
-        <section>
-          <h2>Features</h2>
-          <ul>
-            <li>Authentication</li>
-            <li>Rate Limit</li>
-            <li>Render Cache</li>
-            <li>Data Providers (Entity, DB, CTools plugins)</li>
-            <li>Formatters</li>
-            <li>Tests</li>
-          </ul>
-        </section>
-
-        <section>
-          <h2>Lots of tests ...</h2>
-          <img src="images/tests.jpg">
-        </section>
-
-        <section>
-          <h2>... executed every commit</h2>
-          <small><code data-trim>
-            https://github.com/Gizra/restful
-          </code></small>
-          <img src="images/travis.jpg">
-        </section>
-
-
-        <section>
-          <h1>Lets talk about tests</h1>
-          <aside class="notes">
-            Lets imagine everyone actually wrote tests
-          </aside>
-        </section>
-
-        <section>
-          <h2>Behat</h2>
-
-          <pre><code data-trim>
-Scenario: Validate a user can login to the site and see the homepage.
-Given I visit "/user/login"
- # Fill the username and password input fields, and click submit
- When I fill "username" with "foo"
-  And I fill "password" with "bar"
-  And I press "Login"
- Then I should get a "200" HTTP response
-          </code></pre>
-        </section>
-
-        <section>
-          <h2>Behat, Human readable</h2>
-
-          <pre><code data-trim>
-Scenario: Validate a user can login to the site and see the homepage.
-Given I login with an "authenticated" user
- When I go to the homepage
- Then I should have access
-          </code></pre>
-        </section>
-
-        <section>
-          <h2>Machine</h2>
-
-          <pre><code data-trim>
-Scenario: Validate a user has access to an article.
-Given I login with an "authenticated" user
- When I go to "node/1"
- Then I should have access
-          </code></pre>
-        </section>
-
-        <section>
-          <h2>Human</h2>
-
-          <pre><code data-trim>
-Scenario: Validate a user has access to an article.
-Given I login with an "authenticated" user
- When I go to the content "My first article"
- Then I should have access
-          </code></pre>
-        </section>
-
-        <section>
-          <pre><code data-trim>
-/**
- * @When /^I go to the content "([^"]*)"$/
- */
-public function iGoToTheContent($title) {
-  $query = new entityFieldQuery();
-  $result = $query
-    ->entityCondition('entity_type', 'node')
-    ->propertyCondition('title', $title)
-    ->propertyCondition('status', NODE_PUBLISHED)
-    ->range(0, 1)
-    ->execute();
-
-  if (empty($result['node'])) {
-    $params = array('@title' => $title);
-    throw new Exception(format_string("Node @title not found.", $params));
-  }
-
-  $nid = key($result['node']);
-  return new Given('I go to "node/' . $nid. '"');
-}
-          </code></pre>
-        </section>
-
       <section>
         Hedley
       </section>
@@ -873,8 +529,7 @@ public function iGoToTheContent($title) {
       </section>
 
       <section>
-        <h1>Clear Communication</h1>
-        <h2>Separate the wheat from the chaff </h2>
+        <h1>Clear and clear Communication</h1>
 
         <aside class="notes">
           The same way you imagine the clean UI; Your code is the UI.
